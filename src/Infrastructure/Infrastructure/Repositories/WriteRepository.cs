@@ -25,11 +25,7 @@ namespace Infrastructure.Repositories
             EntityEntry<T> entityEntry = await Table.AddAsync(model);
             return entityEntry.State == EntityState.Added;
         }
-        public async Task<bool> AddRangeAsync(List<T> datas)
-        {
-            await Table.AddRangeAsync(datas);
-            return true;
-        }
+       
         public bool Remove(T model)
         {
             EntityEntry<T> entityEntry = Table.Remove(model);

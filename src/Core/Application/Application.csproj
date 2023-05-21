@@ -14,4 +14,15 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Commands\Country\" />
+    <Folder Include="Features\Commands\Segment\" />
+    <Folder Include="Features\Commands\Product\" />
+    <Folder Include="Features\Commands\Order\" />
+    <Folder Include="Features\Queries\Country\" />
+    <Folder Include="Features\Queries\Segment\" />
+    <Folder Include="Features\Queries\Product\" />
+    <Folder Include="Features\Queries\Order\" />
+  </ItemGroup>
+
 </Project>
