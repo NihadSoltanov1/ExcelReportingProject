@@ -7,22 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Commands\Country\" />
-    <Folder Include="Features\Commands\Segment\" />
-    <Folder Include="Features\Commands\Product\" />
-    <Folder Include="Features\Commands\Order\" />
-    <Folder Include="Features\Queries\Country\" />
-    <Folder Include="Features\Queries\Segment\" />
-    <Folder Include="Features\Queries\Product\" />
-    <Folder Include="Features\Queries\Order\" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,16 @@
-﻿using Domain.Common;
-using Domain.Enums;
+﻿using Domain.Enums;
+using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Commands.Order.CreateRangeOrder
 {
-    public class Order : BaseEntity
+    public class CreateRangeOrderCommandRequest 
+        : IRequest<CreateRangeOrderCommandResponse>
     {
-        
-        public int Id { get; set; }
         public string? Segment { get; set; }
         public string? Country { get; set; }
         public string? Product { get; set; }
@@ -26,6 +24,5 @@ namespace Domain.Entities
         public decimal? COGS { get; set; }
         public decimal? Profit { get; set; }
         public DateTime? Date { get; set; }
-
     }
 }

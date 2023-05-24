@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Repositories.Country
+namespace Application.Features.Commands.Order.CreateRangeOrder
 {
-    public interface ICountryWriteRepository : IWriteRepository<Domain.Entities.Country>
+    public class CreateRangeOrderCommandResponse 
     {
     }
 }

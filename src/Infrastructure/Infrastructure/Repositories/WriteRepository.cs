@@ -43,5 +43,11 @@ namespace Infrastructure.Repositories
         }
         public async Task<int> SaveAsync()
             => await _context.SaveChangesAsync();
+
+        public async  Task<bool> AddRangeAsync(List<T> entities)
+        {
+            await Table.AddRangeAsync(entities);
+            return true;
+        }
     }
 }

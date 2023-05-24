@@ -14,9 +14,6 @@ namespace Infrastructure.Context
         {
         }
 
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Segment> Segments { get; set; }
     }
 }

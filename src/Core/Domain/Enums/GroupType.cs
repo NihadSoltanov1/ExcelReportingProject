@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Repositories.Country
+namespace Domain.Enums
 {
-    public interface ICountryReadRepository : IReadRepository<Domain.Entities.Country>
+    public enum GroupType
     {
+        Segment,
+        Country,
+        Product
     }
 }
