@@ -1,5 +1,7 @@
-using Application;
+﻿using Application;
+using Domain.Enums;
 using Infrastructure;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,14 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplicationService(); 
 builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Sample API", Version = "v1" });
+
+    // Enum değerlerini string olarak belirtin
+    c.MapType<GroupType>(() => new OpenApiSchema { Type = "string" });
+});
+
 
 var app = builder.Build();
 

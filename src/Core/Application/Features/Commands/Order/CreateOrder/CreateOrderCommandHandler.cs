@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Commands.Order.CreateRangeOrder
+namespace Application.Features.Commands.Order.CreateOrder
 {
-    public class CreateRangeOrderCommandHandler : IRequestHandler<CreateRangeOrderCommandRequest, CreateRangeOrderCommandResponse>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandRequest, CreateOrderCommandResponse>
     {
         private readonly IOrderWriteRepository _orderWriteRepository;
 
-        public CreateRangeOrderCommandHandler(IOrderWriteRepository orderWriteRepository)
+        public CreateOrderCommandHandler(IOrderWriteRepository orderWriteRepository)
         {
             _orderWriteRepository = orderWriteRepository;
         }
 
-        public async Task<CreateRangeOrderCommandResponse> Handle(CreateRangeOrderCommandRequest request, CancellationToken cancellationToken)
+        public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommandRequest request, CancellationToken cancellationToken)
         {
                await  _orderWriteRepository.AddAsync(
                 new Domain.Entities.Order()
@@ -37,7 +37,7 @@ namespace Application.Features.Commands.Order.CreateRangeOrder
                     Date = request.Date
                 }
                 );
-            return new CreateRangeOrderCommandResponse();
+            return new CreateOrderCommandResponse();
         }
     }
 }

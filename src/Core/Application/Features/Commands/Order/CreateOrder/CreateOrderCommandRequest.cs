@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Commands.Order.CreateRangeOrder
+namespace Application.Features.Commands.Order.CreateOrder
 {
-    public class CreateRangeOrderCommandRequest 
-        : IRequest<CreateRangeOrderCommandResponse>
+    public class CreateOrderCommandRequest 
+        : IRequest<CreateOrderCommandResponse>
     {
         public string? Segment { get; set; }
         public string? Country { get; set; }
