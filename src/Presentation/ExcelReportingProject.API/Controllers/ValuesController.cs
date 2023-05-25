@@ -18,7 +18,7 @@ namespace ExcelReportingProject.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Test (IFormFile excelFile)
         {
-            file.FileUploadAndWriteToSql(excelFile);
+            await file.FileUploadAndWriteToSql(excelFile);
             return Ok();
         }
     }

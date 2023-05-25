@@ -9,6 +9,6 @@ namespace Application.Services
 {
     public interface IFileUploadService
     {
-        public void FileUploadAndWriteToSql(IFormFile excelFile);
+        public  Task FileUploadAndWriteToSql(IFormFile excelFile);
     }
 }

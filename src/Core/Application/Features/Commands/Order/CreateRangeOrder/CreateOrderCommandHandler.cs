@@ -37,7 +37,6 @@ namespace Application.Features.Commands.Order.CreateRangeOrder
                     Date = request.Date
                 }
                 );
-           await _orderWriteRepository.SaveAsync();
             return new CreateRangeOrderCommandResponse();
         }
     }

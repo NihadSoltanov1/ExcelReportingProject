@@ -16,6 +16,7 @@ using System.Diagnostics.Metrics;
 using Domain.Enums;
 using MediatR;
 using Application.Features.Commands.Order.CreateRangeOrder;
+using Application.Repositories.Order;
 
 namespace Infrastructure.Services
 {
@@ -23,14 +24,16 @@ namespace Infrastructure.Services
     {
         private readonly IHostEnvironment _hostingEnvironment;
         private readonly IMediator _mediator;
-        public FileUploadService(IHostEnvironment hostingEnvironment, IMediator mediator)
+        private readonly IOrderWriteRepository _orderWriteRepository;
+        public FileUploadService(IHostEnvironment hostingEnvironment, IMediator mediator, IOrderWriteRepository orderWriteRepository)
         {
             _hostingEnvironment = hostingEnvironment;
             _mediator = mediator;
+            _orderWriteRepository = orderWriteRepository;
         }
-        public void FileUploadAndWriteToSql(IFormFile excelFile)
+        public async Task FileUploadAndWriteToSql(IFormFile excelFile)
         {
-            CreateRangeOrderCommandRequest order = new CreateRangeOrderCommandRequest();
+            CreateOrderCommandRequest order = new CreateOrderCommandRequest();
             var extensionName = Path.GetExtension(excelFile.FileName);
             if (extensionName != ".xlsx" && extensionName != ".xls")
             {
@@ -96,7 +99,7 @@ namespace Infrastructure.Services
                     else if (colmName == "Profit")
                         order.Profit = decimal.Parse(dt.Rows[i][j].ToString().Replace('C', ' '));
                     else if (colmName == "Date")
-                        order.Date = (DateTime)dt.Rows[i][j];
+                        order.Date = DateTime.SpecifyKind((DateTime)dt.Rows[i][j], DateTimeKind.Utc);
                     else if (colmName == "Sale Price")
                         order.SalesPrice = decimal.Parse(dt.Rows[i][j].ToString().Replace('C', ' '));
                     else if (colmName == "Manufacturing Price")
@@ -111,7 +114,10 @@ namespace Infrastructure.Services
                     }
                 }
                 _mediator.Send(order);
+
             }
+            await _orderWriteRepository.SaveAsync();
+
 
 
         }
