@@ -25,6 +25,8 @@ namespace Infrastructure
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
             services.AddScoped<IFileUploadService, FileUploadService>();
+            services.AddScoped<ISendMailService, SendMailService>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
 
         }
     }

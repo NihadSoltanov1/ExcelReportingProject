@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -18,8 +18,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Sendinblue.Api" Version="0.1.1" />
+    <PackageReference Include="sib_api_v3_sdk" Version="4.0.2" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
 
   </ItemGroup>

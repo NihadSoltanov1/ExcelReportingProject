@@ -13,11 +13,13 @@ namespace ExcelReportingProject.API.Controllers
     {
         private readonly IFileUploadService file;
         private readonly IMediator _mediator;
+        private readonly ISendMailService _sendMail;
 
-        public ValuesController(IFileUploadService file, IMediator mediator)
+        public ValuesController(IFileUploadService file, IMediator mediator, ISendMailService sendMail)
         {
             this.file = file;
             _mediator = mediator;
+            _sendMail = sendMail;
         }
 
         [HttpPost]
@@ -26,7 +28,8 @@ namespace ExcelReportingProject.API.Controllers
             await file.FileUploadAndWriteToSql(excelFile);
             return Ok();
         }
-        [HttpGet]
+        [Route("api/[controller]/GetOrderBySegment")]
+        [HttpPost]
         public async Task<IActionResult> GetOrderBySegment(DateTime startDate, DateTime endDate, [FromQuery] GroupType groupBy)
         {
             var queryRequest = new GetOrderGroupByQueryRequest
@@ -37,8 +40,8 @@ namespace ExcelReportingProject.API.Controllers
             };
 
             var queryResponse = await _mediator.Send(queryRequest);
-
-            return Ok(queryResponse);
+            await _sendMail.SendMail(queryResponse.SegmentsData.ToList());
+            return Ok();
         }
     }
 }

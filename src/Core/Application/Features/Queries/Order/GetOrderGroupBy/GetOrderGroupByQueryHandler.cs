@@ -29,19 +29,37 @@ namespace Application.Features.Queries.Order.GetOrderGroupBy
                     case "Segment": return x.Segment;
                     case "Country": return x.Country;
                     case "Product": return x.Product;
+                    case "ProductDiscountPer": return x.Product;
                     default: return null;
 
                 }
             })
-                .Select(g => new SegmentData
-            {
-                ResGroupType = g.Key,
-                ProductCount = g.Count(),
-                UnitsSoldSum = g.Sum(x=>x.UnitsSold),
-                Discounts = g.Sum(x=>x.Discounts),
-                Profit = g.Sum(x=>x.Profit)
+                .Select(g =>
+                { 
+                    if (request.ReqGroupType == "ProductDiscountPer")
+                    {
+                        return new SegmentData()
+                        {
 
-            }).ToList();
+                            ResGroupType = g.Key,
+                            Discounts = ((100 * g.Sum(x => x.Discounts)) / (g.Sum(x => x.UnitsSold) *    g.Sum(x => x.SalesPrice)))
+
+                        };
+                    }
+                    else
+                    {
+                        return new SegmentData()
+                        {
+
+                            ResGroupType = g.Key,
+                            ProductCount = g.Count(),
+                            UnitsSoldSum = g.Sum(x => x.UnitsSold),
+                            Discounts = g.Sum(x => x.Discounts),
+                            Profit = g.Sum(x => x.Profit)
+
+                        };
+                    }
+                }).ToList();
 
             var response = new GetOrderGroupByQueryResponse
             {

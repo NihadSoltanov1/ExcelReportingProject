@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Enums
+namespace Application.Features.Queries.Order.GetOrderGroupByProduct
 {
-    public enum GroupType
+    internal class GetOrderGroupByProductQueryResponse
     {
-        Segment,
-        Country,
-        Product,
-        ProductDiscountPer
     }
 }
