@@ -1,5 +1,6 @@
 ﻿using Application;
 using Domain.Enums;
+using ExcelReportingProject.API;
 using Infrastructure;
 using Microsoft.OpenApi.Models;
 
@@ -12,6 +13,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplicationService();
+builder.Services.AddPresentationServices();
 builder.Services.AddHttpClient();
 
 builder.Services.AddSwaggerGen();

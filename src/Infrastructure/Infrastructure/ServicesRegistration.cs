@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Application.Repositories.Order;
 using Infrastructure.Repositories.Order;
 using Application.Services;
-using Infrastructure.Services;
 
 namespace Infrastructure
 {
@@ -24,9 +23,7 @@ namespace Infrastructure
 
             services.AddScoped<IOrderWriteRepository, OrderWriteRepository>();
             services.AddScoped<IOrderReadRepository, OrderReadRepository>();
-            services.AddScoped<IFileUploadService, FileUploadService>();
-            services.AddScoped<ISendMailService, SendMailService>();
-            services.AddScoped<IFileUploadService, FileUploadService>();
+           
 
         }
     }

@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Core\Domain\D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcelReportingProject.API", "src\Presentation\ExcelReportingProject.API\ExcelReportingProject.API.csproj", "{2A72F7CB-80E0-4F45-8F74-E14EC6B5564B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure\Infrastructure.csproj", "{2FB3314A-79A7-4CB9-8FCC-F289EFB626DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure\Infrastructure.csproj", "{2FB3314A-79A7-4CB9-8FCC-F289EFB626DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A9AC930F-36F3-4902-BD62-D3AE9E89881D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
